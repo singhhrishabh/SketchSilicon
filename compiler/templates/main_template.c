@@ -89,7 +89,7 @@ const uint32_t vector_table[] = {
 void Reset_Handler(void) {
     SystemInit();
     main();
-    while (1) {}  /* Never return */
+    while (1) {}  /* Safety net: CPU must never fall off Reset_Handler */
 }
 
 /* ─── Default Handler (infinite loop) ─────────────── */

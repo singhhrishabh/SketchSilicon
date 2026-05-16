@@ -97,6 +97,11 @@ CODE GENERATION RULES:
         0x20000800U,              /* Initial SP = top of 2KB RAM */
         (uint32_t)&Reset_Handler, /* Reset handler */
     };
+- RESET_HANDLER RULES (critical — missing while(1) = HardFault in QEMU and on hardware):
+  * Reset_Handler MUST call main() then loop forever — main() should never return but the
+    infinite loop is the safety net if it does:
+    void Reset_Handler(void) { SystemInit(); main(); while (1) {} }
+  * NEVER let Reset_Handler fall off the end — the CPU will execute garbage memory and fault.
 
 OUTPUT FORMAT:
 When you have generated the complete firmware, call the compile_firmware tool with the full C source code. Do NOT output partial code — always provide the complete, self-contained .c file including all #includes, register definitions, and the vector table.
