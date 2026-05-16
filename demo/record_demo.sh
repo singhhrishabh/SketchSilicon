@@ -42,6 +42,7 @@ sleep 1
 
 # Record
 asciinema rec "$SCRIPT_DIR/raw_recording.cast" \
+    --overwrite \
     --cols 120 --rows 35 \
     -c "bash $SCRIPT_DIR/demo_commands.sh"
 
