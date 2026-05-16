@@ -35,7 +35,7 @@ echo "  Target: ARM Cortex-M0 (STM32F030)"
 echo ""
 sleep 1
 
-python3 -m ui.cli run tests/sample_schematics/pump_control.png --verbose
+python3 -m ui.cli run tests/sample_schematics/pump_control.png
 
 echo ""
 echo "╔══════════════════════════════════════════════════╗"
