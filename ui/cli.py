@@ -67,10 +67,13 @@ def run(ctx, image_path, target, optimization, no_simulate, output_dir, offline_
         verbose=ctx.obj.get("verbose", False),
     )
 
-    if result.success:
-        console.print("\n[bold green]Pipeline completed successfully![/bold green]")
-    else:
-        console.print(f"\n[bold yellow]Pipeline finished with issues: {result.error}[/bold yellow]")
+    try:
+        if result.success:
+            console.print("\n[bold green]Pipeline completed successfully![/bold green]")
+        else:
+            console.print(f"\n[bold yellow]Pipeline finished with issues: {result.error}[/bold yellow]")
+    except BlockingIOError:
+        pass
 
     sys.exit(0 if result.success else 1)
 

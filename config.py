@@ -85,6 +85,18 @@ CODE GENERATION RULES:
 - Include SystemInit() for clock configuration
 - Every delay loop must use volatile counter to prevent optimization
 - Maximum stack depth: 2KB (avoid deep recursion and large local arrays)
+- VECTOR TABLE RULES (critical — wrong vector table = hardware fault on reset):
+  * ALWAYS place vector table in .isr_vector section: __attribute__((section(".isr_vector")))
+  * The first entry MUST be the initial stack pointer = top of RAM address, NOT a size value
+    Correct:   (uint32_t)0x20000800  (top of 2KB RAM at 0x20000000)
+    WRONG:     (uint32_t)STACK_SIZE  or (uint32_t)0x800  (this is just a number, not an address!)
+  * The second entry MUST be the Reset_Handler address: (uint32_t)&Reset_Handler
+  * Example correct vector table:
+    __attribute__((section(".isr_vector")))
+    const uint32_t vector_table[] = {
+        0x20000800U,              /* Initial SP = top of 2KB RAM */
+        (uint32_t)&Reset_Handler, /* Reset handler */
+    };
 
 OUTPUT FORMAT:
 When you have generated the complete firmware, call the compile_firmware tool with the full C source code. Do NOT output partial code — always provide the complete, self-contained .c file including all #includes, register definitions, and the vector table.
