@@ -148,14 +148,19 @@ class GCCWrapper:
         lines = code.split("\n")
         sanitized = []
         for line in lines:
-            # Fix: LDR SP, =array[index] → LDR SP, =_estack (invalid ARM asm)
-            if re.search(r'__asm__.*LDR\s+SP\s*,\s*=\s*\w+\[', line):
-                line = '    __asm__ volatile ("LDR SP, =_estack");'
+            # Fix: Any asm that tries to set SP (mov sp, ldr sp, msr msp)
+            # On Cortex-M0, SP is set automatically from vector table on reset.
+            if '__asm__' in line or 'asm(' in line:
+                if re.search(r'(mov\s+sp|ldr\s+sp|msr\s+msp)', line, re.IGNORECASE):
+                    line = '    /* SP is set by vector table on reset, no manual init needed */'
             # Fix: LDR register, =symbol[N] → LDR register, =symbol
             line = re.sub(r'(=\s*\w+)\[\d+\]', r'\1', line)
             # Fix: naked inline asm without __asm__ wrapper
             if re.search(r'^\s*"(LDR|MOV|STR|BX|BL|NOP)', line) and '__asm__' not in line:
                 line = f'    __asm__ volatile ({line.strip()});'
+            # Fix: broken asm string concatenation with # macros
+            if re.search(r'__asm__.*#"\s*#\w+', line):
+                line = '    /* SP is set by vector table, no manual init needed */'
             sanitized.append(line)
         return "\n".join(sanitized)
 
@@ -185,7 +190,7 @@ class GCCWrapper:
         self,
         code: str,
         target: str = "cortex-m0",
-        optimization: str = "Os",
+        optimization: str = "s",
         filename: str = "firmware",
     ) -> CompileResult:
         """

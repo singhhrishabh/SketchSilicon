@@ -231,7 +231,7 @@ class FieldForgeOrchestrator:
 
             # ── STEP 5: Final Compilation ─────────────────────
             progress.update(task, description="[cyan]Step 5/7 — Compiling validated firmware...")
-            final_compile = self.gcc.compile(current_code, optimization="Os", filename="firmware_final")
+            final_compile = self.gcc.compile(current_code, optimization="s", filename="firmware_final")
 
             if final_compile.success and final_compile.metrics:
                 progress.update(task, description="[green]Step 5/7 — Final build successful ✓")
