@@ -42,18 +42,22 @@ FieldForge is a five-component pipeline, each grounded in real toolchain operati
 
 In our benchmark test using a pump control schematic (MCU with enable switch, MOSFET driver, status LED):
 
-The Architect generated 156 lines of C firmware after analyzing the hand-drawn schematic through Gemma 4's multimodal vision. It correctly identified GPIO pins, the pump control MOSFET, enable switch, and status LED, mapping them to an STM32F030 Cortex-M0 register layout.
+The Architect generated 179 lines of C firmware after analyzing the hand-drawn schematic through Gemma 4's multimodal vision. It correctly identified GPIO pins, the pump control MOSFET, enable switch, and status LED, mapping them to an STM32F030 Cortex-M0 register layout.
 
-The Critic identified seven genuine bugs across two severity tiers:
-- **Line 13 (Category A5, Critical):** RCC_AHBENR pointer cast used without volatile qualifier — the compiler could optimize away critical clock enable writes, causing a bus fault on real hardware.
-- **Line 59 (Category A5, Critical):** Duplicate volatile declaration conflict on the same register pointer, creating undefined behavior during GPIO initialization.
-- **Line 110 (Category B3, High):** GPIO output set via ODR instead of BSRR — non-atomic operation risks glitching adjacent pins during concurrent interrupt access.
-- **Line 114 (Category B3, High):** BSRR bit-reset mask calculated incorrectly for PA5, placing the reset bit in the wrong half of the 32-bit register.
-- **Line 121 (Category B3, High):** Same BSRR mask error for PA7 pump control pin — would silently fail to disable the pump.
+The Critic identified five genuine bugs across two severity tiers:
+- **Line 142 (Category A5, Critical):** Invalid inline assembly attempting to set the stack pointer with a preprocessor macro concatenation — would cause an assembler error on any ARM target.
+- **Line 106 (Category B3, High):** GPIO output set via ODR instead of BSRR — non-atomic operation risks glitching adjacent pins during concurrent interrupt access.
+- **Line 111 (Category B3, High):** Clearing a bit via ODR AND-mask instead of using the BSRR reset half — same non-atomic race condition.
+- **Line 113 (Category B3, High):** Same ODR-based clear on the status LED pin — would silently glitch the pump control output.
+- **Line 155 (Category C1, Medium):** Blocking delay in main loop — flagged as poor practice for real-time systems.
 
-These are the exact classes of bugs that cause real embedded systems to fail in the field.
+After the Critic's fixes were applied, the firmware compiled successfully and passed QEMU simulation:
+- **Instructions:** 93
+- **Binary size:** 256 bytes
+- **Stack depth:** 264 bytes
+- **Efficiency Grade:** A (96.4/100)
 
-Gemma 4 E4B runs at approximately 52 tokens/second on an M4 Pro MacBook via llama.cpp with Q4_K_M quantization and mmproj-BF16 vision adapter. Total pipeline time: 248 seconds (4 minutes 8 seconds). All tests conducted with WiFi disabled — zero external API calls. The llama.cpp server logs confirm every token was generated locally, with prompt evaluation reaching 570 tokens/second.
+Gemma 4 E4B runs at approximately 52 tokens/second on an M4 Pro MacBook via llama.cpp with Q4_K_M quantization and mmproj-BF16 vision adapter. Total pipeline time: 211 seconds (3 minutes 31 seconds). All tests conducted with WiFi disabled — zero external API calls. The llama.cpp server logs confirm every token was generated locally, with prompt evaluation reaching 570 tokens/second.
 
 ## Impact & Future
 
