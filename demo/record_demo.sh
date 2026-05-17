@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# FieldForge — Demo Recording Script
+# SketchSilicon — Demo Recording Script
 # Records a terminal demo as .cast then converts to GIF
 # Usage: ./demo/record_demo.sh
 set -euo pipefail
@@ -51,18 +51,18 @@ echo -e "\n${GREEN}✓ Recording saved: $SCRIPT_DIR/raw_recording.cast${NC}"
 # Convert to GIF if agg is available
 if command -v agg &>/dev/null; then
     echo -e "${CYAN}Converting to GIF...${NC}"
-    agg "$SCRIPT_DIR/raw_recording.cast" "$SCRIPT_DIR/fieldforge_demo.gif" \
+    agg "$SCRIPT_DIR/raw_recording.cast" "$SCRIPT_DIR/sketchsilicon_demo.gif" \
         --cols 120 --rows 35 --speed 1.5
-    echo -e "${GREEN}✓ GIF saved: $SCRIPT_DIR/fieldforge_demo.gif${NC}"
+    echo -e "${GREEN}✓ GIF saved: $SCRIPT_DIR/sketchsilicon_demo.gif${NC}"
 elif command -v asciinema-agg &>/dev/null; then
     echo -e "${CYAN}Converting to GIF...${NC}"
-    asciinema-agg "$SCRIPT_DIR/raw_recording.cast" "$SCRIPT_DIR/fieldforge_demo.gif" \
+    asciinema-agg "$SCRIPT_DIR/raw_recording.cast" "$SCRIPT_DIR/sketchsilicon_demo.gif" \
         --cols 120 --rows 35 --speed 1.5
-    echo -e "${GREEN}✓ GIF saved: $SCRIPT_DIR/fieldforge_demo.gif${NC}"
+    echo -e "${GREEN}✓ GIF saved: $SCRIPT_DIR/sketchsilicon_demo.gif${NC}"
 else
     echo -e "  ${RED}No GIF converter found. Install: pip3 install asciinema-agg${NC}"
     echo -e "  Then convert manually:"
-    echo -e "  agg $SCRIPT_DIR/raw_recording.cast $SCRIPT_DIR/fieldforge_demo.gif --speed 1.5"
+    echo -e "  agg $SCRIPT_DIR/raw_recording.cast $SCRIPT_DIR/sketchsilicon_demo.gif --speed 1.5"
 fi
 
 echo -e "\n${GREEN}Done! Don't forget to re-enable WiFi:${NC}"

@@ -1,5 +1,5 @@
 """
-FieldForge — QEMU Simulator (Primary)
+SketchSilicon — QEMU Simulator (Primary)
 =======================================
 Runs compiled ARM firmware in QEMU ARM emulator.
 Captures UART output and verifies expected signals.

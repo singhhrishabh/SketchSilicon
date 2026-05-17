@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
-# FieldForge — Demo Commands (runs INSIDE the asciinema recording)
+# SketchSilicon — Demo Commands (runs INSIDE the asciinema recording)
 # This is what the audience sees in the terminal recording.
 set -euo pipefail
 
-cd /Users/singhhrishabh/Desktop/Y/fieldforge
+cd /Users/singhhrishabh/Desktop/Y/sketchsilicon
 
 echo ""
 echo "╔══════════════════════════════════════════════════╗"
-echo "║  FIELDFORGE v1.0 — Sketch → Firmware Pipeline   ║"
+echo "║  SKETCHSILICON v1.0 — Sketch → Firmware Pipeline   ║"
 echo "║  Powered by Gemma 4 E4B via llama.cpp           ║"
 echo "╚══════════════════════════════════════════════════╝"
 echo ""
@@ -39,7 +39,7 @@ python3 -m ui.cli run tests/sample_schematics/pump_control.png
 
 echo ""
 echo "╔══════════════════════════════════════════════════╗"
-echo "║  ✅ FIELDFORGE DEMO COMPLETE                    ║"
+echo "║  ✅ SKETCHSILICON DEMO COMPLETE                    ║"
 echo "║  100% offline — zero API calls made             ║"
 echo "╚══════════════════════════════════════════════════╝"
 sleep 3

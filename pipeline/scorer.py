@@ -1,5 +1,5 @@
 """
-FieldForge — Resource Scorer
+SketchSilicon — Resource Scorer
 ==============================
 Converts GCC output metrics into human-readable efficiency grades.
 This is the project's real "reward function" — all numbers come from GCC.

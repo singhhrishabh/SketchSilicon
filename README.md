@@ -1,4 +1,4 @@
-# FieldForge
+# SketchSilicon
 
 ```
 ███████╗██╗███████╗██╗     ██████╗ ███████╗ ██████╗ ██████╗  ██████╗ ███████╗
@@ -11,7 +11,7 @@
 
 **Sketch it. Snap it. Flash it.** — Turn a photo of any hand-drawn circuit schematic into validated, compiled, running ARM firmware. Entirely offline. On a phone. In under 2 minutes.
 
-![Demo](demo/fieldforge_demo.gif)
+![Demo](demo/sketchsilicon_demo.gif)
 
 ![Python 3.9+](https://img.shields.io/badge/Python-3.9+-blue) ![Gemma 4](https://img.shields.io/badge/Gemma_4-E4B-orange) ![llama.cpp](https://img.shields.io/badge/llama.cpp-local-green) ![ARM GCC](https://img.shields.io/badge/ARM-Cortex--M0-red) ![License](https://img.shields.io/badge/License-Apache_2.0-purple)
 
@@ -21,13 +21,13 @@
 
 It's 3 AM in a flood-damaged hospital. The water pump that keeps the dialysis unit running has failed — its control board is fried. The field engineer knows exactly what circuit she needs. She sketches it on the back of a patient chart. But there's no laptop, no internet, no IDE. Just a phone in her pocket.
 
-**FieldForge turns that sketch into working firmware in under 2 minutes — completely offline.**
+**SketchSilicon turns that sketch into working firmware in under 2 minutes — completely offline.**
 
 ## Quick Start
 
 ```bash
-git clone https://github.com/singhhrishabh/FieldForge.git
-cd fieldforge
+git clone https://github.com/singhhrishabh/SketchSilicon.git
+cd sketchsilicon
 pip install -r requirements.txt
 chmod +x setup.sh start_server.sh
 ./setup.sh                    # Install ARM GCC, llama.cpp, download Gemma 4
@@ -39,7 +39,7 @@ python -m ui.cli demo         # Run the demo!
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                    FieldForge Pipeline                           │
+│                    SketchSilicon Pipeline                           │
 │                                                                  │
 │  📷 Phone Photo                                                  │
 │       │                                                          │
@@ -102,7 +102,7 @@ The Critic agent holds the **entire firmware source** in context (typically 80�
 
 ## Running Offline (Cactus Track)
 
-FieldForge requires **zero internet** after initial setup:
+SketchSilicon requires **zero internet** after initial setup:
 
 ```bash
 # 1. Setup (one-time, needs internet)
@@ -142,7 +142,7 @@ Screenshot your WiFi-off notification for the submission.
 ## Sample Output
 
 ```
-FIELDFORGE v1.0 │ Powered by Gemma 4 via llama.cpp
+SKETCHSILICON v1.0 │ Powered by Gemma 4 via llama.cpp
   Server: ONLINE ✓
   Network: OFFLINE MODE ✓
 
@@ -166,7 +166,7 @@ Step 6/7 — Simulation complete ✓
   Simulator: qemu │ Runtime: 36ms │ Signals: OUTPUT ✓
 Step 7/7 — Report generated
 
-══════════ FIELDFORGE — FIRMWARE GENERATED ✓ ══════════
+══════════ SKETCHSILICON — FIRMWARE GENERATED ✓ ══════════
 
   Schematic → Firmware in 179.6s
 
@@ -187,7 +187,7 @@ Step 7/7 — Report generated
 ## Project Structure
 
 ```
-fieldforge/
+sketchsilicon/
 ├── config.py                 # Central configuration & system prompts
 ├── llama_client.py           # llama.cpp OpenAI-compatible client
 ├── setup.sh                  # Full environment setup

@@ -1,5 +1,5 @@
 """
-FieldForge — Image Processor
+SketchSilicon — Image Processor
 ==============================
 Preprocesses phone photos of hand-drawn circuit schematics for Gemma 4.
 Handles: low-light, blur, tilt, shadows, crumpled paper.

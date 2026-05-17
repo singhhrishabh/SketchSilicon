@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-FieldForge — Vision Test
+SketchSilicon — Vision Test
 Tests that llama.cpp server can process images via Gemma 4 E4B + mmproj.
 Usage: python3 test_vision.py
 """
@@ -52,7 +52,7 @@ def create_test_schematic() -> str:
 def test_vision():
     """Send a test image to the server and verify multimodal response."""
     print("=" * 50)
-    print("FieldForge Vision Test")
+    print("SketchSilicon Vision Test")
     print("=" * 50)
 
     # Step 1: Create test image

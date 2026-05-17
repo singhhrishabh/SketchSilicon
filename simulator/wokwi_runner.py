@@ -1,5 +1,5 @@
 """
-FieldForge — Wokwi Simulator (Optional)
+SketchSilicon — Wokwi Simulator (Optional)
 =========================================
 Wokwi CLI integration for hardware simulation.
 Requires a Wokwi license token. Falls back to QEMU if unavailable.
@@ -51,7 +51,7 @@ class WokwiRunner:
             )
 
         # Create temp project directory
-        with tempfile.TemporaryDirectory(prefix="fieldforge_") as tmpdir:
+        with tempfile.TemporaryDirectory(prefix="sketchsilicon_") as tmpdir:
             tmppath = Path(tmpdir)
 
             # Write diagram
@@ -97,7 +97,7 @@ class WokwiRunner:
         diagrams = {
             "led_blink": {
                 "version": 1,
-                "author": "FieldForge",
+                "author": "SketchSilicon",
                 "editor": "wokwi",
                 "parts": [
                     {"type": "wokwi-arduino-uno", "id": "uno", "top": 0, "left": 0},
@@ -114,7 +114,7 @@ class WokwiRunner:
             },
             "pump_control": {
                 "version": 1,
-                "author": "FieldForge",
+                "author": "SketchSilicon",
                 "editor": "wokwi",
                 "parts": [
                     {"type": "wokwi-arduino-uno", "id": "uno", "top": 0, "left": 0},

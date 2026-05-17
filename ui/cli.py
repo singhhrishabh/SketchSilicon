@@ -1,5 +1,5 @@
 """
-FieldForge — CLI Interface
+SketchSilicon — CLI Interface
 ============================
 Command-line interface for running the full pipeline.
 Usage: python -m ui.cli [COMMAND]
@@ -48,7 +48,7 @@ console = Console(force_terminal=True, soft_wrap=True, highlight=False)
 @click.pass_context
 def cli(ctx, verbose):
     """
-    FieldForge — Schematic to Firmware, Offline.
+    SketchSilicon — Schematic to Firmware, Offline.
 
     Turn a photo of a hand-drawn circuit schematic into validated,
     compiled ARM firmware using Gemma 4 via llama.cpp.
@@ -70,13 +70,13 @@ def cli(ctx, verbose):
 @click.option("--offline-demo", is_flag=True, help="Extra logging proving no network calls")
 @click.pass_context
 def run(ctx, image_path, target, optimization, no_simulate, output_dir, offline_demo):
-    """Run the full FieldForge pipeline on a schematic image."""
+    """Run the full SketchSilicon pipeline on a schematic image."""
     if offline_demo:
         console.print("[bold green]🔒 OFFLINE MODE[/bold green] — No internet required")
         console.print("[dim]All AI inference runs locally via llama.cpp[/dim]\n")
 
-    from pipeline.orchestrator import FieldForgeOrchestrator
-    orchestrator = FieldForgeOrchestrator()
+    from pipeline.orchestrator import SketchSiliconOrchestrator
+    orchestrator = SketchSiliconOrchestrator()
     result = orchestrator.run(
         image_path=image_path,
         no_simulate=no_simulate,
@@ -100,11 +100,11 @@ def run(ctx, image_path, target, optimization, no_simulate, output_dir, offline_
 
 @cli.command()
 def check():
-    """Verify all FieldForge dependencies are installed."""
+    """Verify all SketchSilicon dependencies are installed."""
     import shutil
     import subprocess
 
-    console.print(Panel("[bold]FieldForge — Dependency Check[/bold]", border_style="blue"))
+    console.print(Panel("[bold]SketchSilicon — Dependency Check[/bold]", border_style="blue"))
 
     table = Table(show_lines=True)
     table.add_column("Component", style="bold", width=20)
@@ -184,14 +184,14 @@ def demo(ctx):
         return
 
     console.print(Panel(
-        "[bold]FieldForge Demo[/bold]\n"
+        "[bold]SketchSilicon Demo[/bold]\n"
         f"Using sample: {samples[0].name}\n"
         "All inference runs locally via llama.cpp — no internet.",
         border_style="cyan",
     ))
 
-    from pipeline.orchestrator import FieldForgeOrchestrator
-    orchestrator = FieldForgeOrchestrator()
+    from pipeline.orchestrator import SketchSiliconOrchestrator
+    orchestrator = SketchSiliconOrchestrator()
     result = orchestrator.run(
         image_path=str(samples[0]),
         verbose=ctx.obj.get("verbose", False),

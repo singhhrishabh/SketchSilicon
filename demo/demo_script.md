@@ -1,4 +1,4 @@
-# FieldForge — Demo Video Script
+# SketchSilicon — Demo Video Script
 
 > **Duration:** 2:55 (target ≤3:00)
 > **Format:** Screen recording + voiceover
@@ -23,10 +23,10 @@
 
 ## ACT 2 — THE TOOL (0:25 – 1:00)
 
-**[VISUAL]** Terminal opens. Font is large (20pt+). The FieldForge banner appears.
+**[VISUAL]** Terminal opens. Font is large (20pt+). The SketchSilicon banner appears.
 
 **[ON-SCREEN TEXT]**
-`FieldForge v1.0 | Powered by Gemma 4 via llama.cpp`
+`SketchSilicon v1.0 | Powered by Gemma 4 via llama.cpp`
 
 **[VISUAL]** Quick cut: WiFi is OFF. Show the macOS WiFi menu — "Wi-Fi: Off" clearly visible. Hold for 3 seconds.
 
@@ -38,7 +38,7 @@
 **[VISUAL]** Command typed: `python -m ui.cli run --offline-demo tests/sample_schematics/pump_control.png`
 
 **[VOICEOVER]**
-"One command. The phone photo of her sketch goes into FieldForge."
+"One command. The phone photo of her sketch goes into SketchSilicon."
 
 **[VISUAL]** Step 1 spinner completes: "Image preprocessed ✓ — 5 components, complexity: moderate"
 Step 2 spinner appears: "Architect analyzing schematic..."
@@ -59,7 +59,7 @@ Step 2 spinner appears: "Architect analyzing schematic..."
 Step 4 spinner: "Critic reviewing code for bugs..."
 
 **[VOICEOVER]**
-"But writing code isn't enough. In embedded systems, one uninitialized pointer crashes the device. So FieldForge has a second agent — the Critic."
+"But writing code isn't enough. In embedded systems, one uninitialized pointer crashes the device. So SketchSilicon has a second agent — the Critic."
 
 **[VISUAL]** Step 4 completes. The verdict appears in red: **"FAIL | Issues: 2"**
 
@@ -98,7 +98,7 @@ Step 5: "Final build successful ✓"
 The final panel renders:
 ```
 ╔══════════════════════════════════════════╗
-║  FIELDFORGE — FIRMWARE GENERATED ✓      ║
+║  SKETCHSILICON — FIRMWARE GENERATED ✓      ║
 ║  Schematic → Firmware in 47.3s          ║
 ║                                         ║
 ║  Bugs caught by Critic: 2              ║
@@ -122,10 +122,10 @@ The final panel renders:
 
 ## ACT 5 — THE VISION (2:25 – 2:55)
 
-**[VISUAL]** World map highlighting climate-vulnerable regions. Transition to a hand holding a phone showing FieldForge running.
+**[VISUAL]** World map highlighting climate-vulnerable regions. Transition to a hand holding a phone showing SketchSilicon running.
 
 **[VOICEOVER]**
-"Three point eight billion Android devices worldwide. Gemma 4 runs on mobile hardware. ARM Cortex-M-zero is the most deployed thirty-two bit architecture on earth. FieldForge sits at the intersection."
+"Three point eight billion Android devices worldwide. Gemma 4 runs on mobile hardware. ARM Cortex-M-zero is the most deployed thirty-two bit architecture on earth. SketchSilicon sits at the intersection."
 
 **[VISUAL]** Return to the sketch from Act 1. The paper. The pen. The dim light.
 
@@ -135,7 +135,7 @@ The final panel renders:
 *[Final beat — 2 seconds of silence]*
 
 **[ON-SCREEN TEXT]**
-`FieldForge — Sketch it. Snap it. Flash it.`
+`SketchSilicon — Sketch it. Snap it. Flash it.`
 `Built with Gemma 4 via llama.cpp | 100% Offline`
 
 ---

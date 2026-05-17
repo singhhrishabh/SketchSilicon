@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# FieldForge — Full Environment Setup
+# SketchSilicon — Full Environment Setup
 set -euo pipefail
 
 RED='\033[0;31m'; GREEN='\033[0;32m'; YELLOW='\033[1;33m'
@@ -142,7 +142,7 @@ verify_setup() {
     echo -e "\n${GREEN}${BOLD}Setup complete!${NC} Run ${CYAN}./start_server.sh${NC} then ${CYAN}python -m ui.cli demo${NC}"
 }
 
-echo -e "${CYAN}${BOLD}FieldForge — Environment Setup${NC}"
+echo -e "${CYAN}${BOLD}SketchSilicon — Environment Setup${NC}"
 mkdir -p "$SCRIPT_DIR"/{output,models,demo/sample_outputs}
 install_python_deps
 install_gcc_arm

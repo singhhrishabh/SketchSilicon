@@ -1,5 +1,5 @@
 """
-FieldForge — llama.cpp Client
+SketchSilicon — llama.cpp Client
 ==============================
 Python client for the llama.cpp OpenAI-compatible server.
 Supports multimodal input (base64 images) and function/tool calling.

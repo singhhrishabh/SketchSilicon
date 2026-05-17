@@ -1,5 +1,5 @@
 /*
- * FieldForge — ARM Cortex-M0 Firmware Template
+ * SketchSilicon — ARM Cortex-M0 Firmware Template
  * =============================================
  * Target: STM32F0 series (ARM Cortex-M0, Thumb ISA)
  * Compiler: arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Os

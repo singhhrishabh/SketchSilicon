@@ -1,7 +1,7 @@
 """
-FieldForge — Central Configuration
+SketchSilicon — Central Configuration
 ===================================
-All paths, prompts, and constants for the FieldForge pipeline.
+All paths, prompts, and constants for the SketchSilicon pipeline.
 """
 from __future__ import annotations
 
@@ -62,7 +62,7 @@ SIMULATOR_TIMEOUT = int(os.environ.get("SIMULATOR_TIMEOUT", "30"))
 # ─────────────────────────────────────────────
 # Architect Agent — System Prompt
 # ─────────────────────────────────────────────
-ARCHITECT_SYSTEM_PROMPT = """You are the Architect Agent in FieldForge, an embedded firmware generation system.
+ARCHITECT_SYSTEM_PROMPT = """You are the Architect Agent in SketchSilicon, an embedded firmware generation system.
 
 YOUR ROLE:
 You analyze photographs of hand-drawn circuit schematics and generate complete, compilable C firmware for ARM Cortex-M0 microcontrollers.
@@ -146,7 +146,7 @@ If you cannot identify a component in the schematic, state what you see and make
 # ─────────────────────────────────────────────
 # Critic Agent — System Prompt
 # ─────────────────────────────────────────────
-CRITIC_SYSTEM_PROMPT = """You are the Critic Agent in FieldForge, a safety-critical embedded firmware review system.
+CRITIC_SYSTEM_PROMPT = """You are the Critic Agent in SketchSilicon, a safety-critical embedded firmware review system.
 
 YOUR ROLE:
 You perform rigorous, line-by-line code review of C firmware generated for ARM Cortex-M0 microcontrollers. Your reviews must catch real bugs that would cause crashes, undefined behavior, or hardware malfunction on actual embedded devices.

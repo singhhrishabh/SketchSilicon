@@ -1,5 +1,5 @@
 """
-FieldForge — Architect Agent
+SketchSilicon — Architect Agent
 ==============================
 Gemma 4 multimodal agent that reads circuit schematic photos
 and generates ARM Cortex-M0 C firmware via function calling.

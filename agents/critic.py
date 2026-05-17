@@ -1,5 +1,5 @@
 """
-FieldForge — Critic Agent
+SketchSilicon — Critic Agent
 ============================
 Gemma 4 code review agent that checks firmware for pointer safety,
 buffer bounds, null dereferences, and embedded-specific bugs.

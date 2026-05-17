@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# FieldForge — Start llama.cpp Server with Gemma 4 Multimodal
+# SketchSilicon — Start llama.cpp Server with Gemma 4 Multimodal
 # Usage: ./start_server.sh
 # chmod +x start_server.sh
 set -euo pipefail
@@ -100,7 +100,7 @@ for i in $(seq 1 60); do
         echo -e "\r  ${GREEN}✓ Server ready!${NC}                    "
         echo ""
         echo -e "${GREEN}${BOLD}╔═══════════════════════════════════════════════╗${NC}"
-        echo -e "${GREEN}${BOLD}║  ✅ FIELDFORGE SERVER READY                  ║${NC}"
+        echo -e "${GREEN}${BOLD}║  ✅ SKETCHSILICON SERVER READY                  ║${NC}"
         echo -e "${GREEN}${BOLD}║  Model:    Gemma 4 E4B (multimodal)          ║${NC}"
         echo -e "${GREEN}${BOLD}║  Vision:   mmproj-BF16.gguf ✓               ║${NC}"
         echo -e "${GREEN}${BOLD}║  Endpoint: http://$HOST:$PORT              ║${NC}"

@@ -1,5 +1,5 @@
 """
-FieldForge — Pipeline Orchestrator
+SketchSilicon — Pipeline Orchestrator
 ====================================
 Coordinates all agents and tools: image → architect → compiler →
 critic → recompile → simulator → scorer → final report.
@@ -32,7 +32,7 @@ logger = logging.getLogger(__name__)
 
 
 class PipelineResult(BaseModel):
-    """Complete result from a FieldForge pipeline run."""
+    """Complete result from a SketchSilicon pipeline run."""
     image_path: str = ""
     raw_code: str = ""
     final_code: str = ""
@@ -47,9 +47,9 @@ class PipelineResult(BaseModel):
     error: str = ""
 
 
-class FieldForgeOrchestrator:
+class SketchSiliconOrchestrator:
     """
-    Main pipeline orchestrator for FieldForge.
+    Main pipeline orchestrator for SketchSilicon.
 
     Coordinates the full flow with rich terminal output:
     1. Preprocess schematic image
@@ -73,14 +73,13 @@ class FieldForgeOrchestrator:
         self.scorer = ResourceScorer()
 
     def print_banner(self):
-        """Print the FieldForge startup banner."""
+        """Print the SketchSilicon startup banner."""
         banner = """
-[bold cyan]███████╗██╗███████╗██╗     ██████╗ ███████╗ ██████╗ ██████╗  ██████╗ ███████╗
-██╔════╝██║██╔════╝██║     ██╔══██╗██╔════╝██╔═══██╗██╔══██╗██╔════╝ ██╔════╝
-█████╗  ██║█████╗  ██║     ██║  ██║█████╗  ██║   ██║██████╔╝██║  ███╗█████╗
-██╔══╝  ██║██╔══╝  ██║     ██║  ██║██╔══╝  ██║   ██║██╔══██╗██║   ██║██╔══╝
-██║     ██║███████╗███████╗██████╔╝██║     ╚██████╔╝██║  ██║╚██████╔╝███████╗
-╚═╝     ╚═╝╚══════╝╚══════╝╚═════╝ ╚═╝      ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚══════╝[/bold cyan]
+[bold cyan]   _____ __        __       __   _____ _ ___
+  / ___// /_____  / /______/ /_ / ___/(_) (_)________  ____
+  \\__ \\/ //_/ _ \\/ __/ ___/ __ \\\\__ \\/ / / / ___/ __ \\/ __ \\
+ ___/ / ,< /  __/ /_/ /__/ / / /__/ / / / / /__/ /_/ / / / /
+/____/_/|_|\\___/\\__/\\___/_/ /_/____/_/_/_/\\___/\\____/_/ /_/[/bold cyan]
 """
         self.console.print(banner)
         self.console.print("[bold]v1.0[/bold] │ Powered by [bold cyan]Gemma 4[/bold cyan] via [bold]llama.cpp[/bold]")
@@ -101,7 +100,7 @@ class FieldForgeOrchestrator:
 
     def run(self, image_path: str, no_simulate: bool = False, verbose: bool = False) -> PipelineResult:
         """
-        Run the full FieldForge pipeline.
+        Run the full SketchSilicon pipeline.
 
         Args:
             image_path: Path to the schematic image.
@@ -289,7 +288,7 @@ class FieldForgeOrchestrator:
         sep = "═" * 70
         lines = []
         lines.append("")
-        lines.append(sep + " FIELDFORGE — FIRMWARE GENERATED ✓ " + sep[:3])
+        lines.append(sep + " SKETCHSILICON — FIRMWARE GENERATED ✓ " + sep[:3])
         lines.append("")
         lines.append(f"  Schematic → Firmware in {result.total_time_seconds:.1f}s")
         lines.append("")

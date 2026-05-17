@@ -1,5 +1,5 @@
 """
-FieldForge — GCC Compiler Wrapper
+SketchSilicon — GCC Compiler Wrapper
 ===================================
 Interface to arm-none-eabi-gcc for compiling Gemma 4-generated C code
 to ARM Cortex-M0 firmware. Extracts resource metrics for scoring.

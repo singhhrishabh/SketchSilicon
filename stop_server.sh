@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# FieldForge — Stop llama.cpp Server
+# SketchSilicon — Stop llama.cpp Server
 # Usage: ./stop_server.sh
 # chmod +x stop_server.sh
 set -euo pipefail
