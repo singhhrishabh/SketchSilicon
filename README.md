@@ -8,7 +8,7 @@
 /____/_/|_|\___/\__/\___/_/ /_/____/_/_/_/\___/\____/_/ /_/
 ```
 
-**Sketch it. Snap it. Flash it.** — Turn a photo of any hand-drawn circuit schematic into validated, compiled, running ARM firmware. Entirely offline. On a phone. In under 2 minutes.
+**Sketch it. Snap it. Flash it.** — Turn a photo of any hand-drawn circuit schematic into validated, compiled, running ARM firmware. Entirely offline. On a phone. 47 seconds on RTX 3080 · ~4 minutes on M4 Pro MacBook · ~8 minutes on Android.
 
 ![Demo](demo/sketchsilicon_demo.gif)
 

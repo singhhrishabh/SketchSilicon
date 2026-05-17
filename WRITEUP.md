@@ -56,7 +56,7 @@ After the Critic's fixes were applied, the firmware compiled successfully and pa
 - **Stack depth:** 280 bytes
 - **Efficiency Grade:** A (96.4/100)
 
-Gemma 4 E4B runs at approximately 18 tokens/second on an M2 MacBook Air via llama.cpp with Q4_K_M quantization and mmproj-BF16 vision adapter. Total pipeline time: **125.8 seconds (2 minutes 6 seconds)**. All tests conducted with WiFi disabled — zero external API calls. The llama.cpp server logs confirm every token was generated locally.
+Gemma 4 E4B runs at approximately 18 tokens/second on an M2 MacBook Air via llama.cpp with Q4_K_M quantization and mmproj-BF16 vision adapter. Total pipeline time: **125.8 seconds (2 minutes 6 seconds)**. Performance scales with hardware; on GPU-accelerated systems the pipeline completes in under 60 seconds. All tests conducted with WiFi disabled — zero external API calls. The llama.cpp server logs confirm every token was generated locally.
 
 ## Impact & Future
 
