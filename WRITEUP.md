@@ -62,6 +62,10 @@ Gemma 4 E4B runs at approximately 18 tokens/second on an M2 MacBook Air via llam
 
 FieldForge serves anyone who needs to build embedded systems without traditional development infrastructure: disaster responders restoring critical equipment, rural clinic technicians maintaining medical devices, maker communities in low-connectivity regions, and engineering students without access to expensive toolchains.
 
+**For educators and students.** A student in a low-bandwidth region can sketch a circuit in their notebook, photograph it, and have working ARM firmware in minutes — no IDE, no compiler installation, no internet. Embedded systems courses currently require students to install toolchains that assume reliable broadband, modern laptops, and English-language documentation. FieldForge democratizes embedded systems education by collapsing the entire setup-to-deployment pipeline into a single command on any device that can run a local LLM.
+
+**For makers and hobbyists.** The 35 million Arduino/maker community frequently works from hand-sketched schematics — napkin drawings, whiteboard photos, notebook pages shared in forums. FieldForge removes the translation step between design and deployment entirely. A maker can sketch a sensor circuit, photograph it, and have validated firmware compiled and simulated before the soldering iron heats up. No more manually translating pin assignments from a drawing to code — the AI reads the schematic the same way a human engineer would.
+
 The accessibility math is simple. Android's global install base is 3.8 billion devices. Gemma 4 runs locally via llama.cpp on modern mobile hardware. ARM Cortex-M0 is the most widely deployed 32-bit microcontroller architecture. FieldForge sits at the intersection of all three.
 
 Next steps include fine-tuning on a curated dataset of circuit schematics to improve first-pass accuracy, expanding target support beyond Cortex-M0, and packaging as a standalone Android app via Termux for true phone-in-pocket deployment.
@@ -69,5 +73,6 @@ Next steps include fine-tuning on a curated dataset of circuit schematics to imp
 ## Prize Track Alignment
 
 - **Global Resilience Impact:** Offline disaster-response tool for field engineers rebuilding critical infrastructure without internet
+- **Digital Equity & Inclusivity:** Closes the AI skills gap for embedded development in low-resource environments — students, educators, and makers in low-bandwidth regions gain access to professional-grade firmware tooling that previously required expensive hardware, licensed software, and reliable internet. FieldForge makes embedded systems literacy achievable with just a phone and a pen.
 - **Cactus Tech Track:** Runs 100% locally — all AI inference, compilation, and simulation happen on-device with zero network calls
 - **llama.cpp Tech Track:** Gemma 4 E4B served via llama.cpp with OpenAI-compatible API, multimodal input, and native function calling
