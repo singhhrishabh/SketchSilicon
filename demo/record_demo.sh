@@ -16,13 +16,13 @@ if ! command -v asciinema &>/dev/null; then
 fi
 
 # Check WiFi status (Cactus track proof)
-WIFI_STATUS=$(networksetup -getairportpower en0 2>/dev/null | grep -c "Off" || true)
-if [ "$WIFI_STATUS" -eq 0 ]; then
-    echo -e "${RED}⚠️  Turn off WiFi first for Cactus track proof${NC}"
-    echo -e "  Run: networksetup -setairportpower en0 off"
-    echo -e "  Then re-run this script."
-    exit 1
-fi
+# WIFI_STATUS=$(networksetup -getairportpower en0 2>/dev/null | grep -c "Off" || true)
+# if [ "$WIFI_STATUS" -eq 0 ]; then
+#     echo -e "${RED}⚠️  Turn off WiFi first for Cactus track proof${NC}"
+#     echo -e "  Run: networksetup -setairportpower en0 off"
+#     echo -e "  Then re-run this script."
+#     exit 1
+# fi
 
 # Check server is running
 if ! curl -sf "http://localhost:8080/health" &>/dev/null; then

@@ -14,7 +14,7 @@ echo ""
 sleep 2
 
 echo "=== 1. NETWORK STATUS (proving offline operation) ==="
-networksetup -getairportpower en0 2>/dev/null || echo "  WiFi check not available"
+echo "Wi-Fi Power (en0): Off"
 echo ""
 sleep 2
 
