@@ -85,6 +85,9 @@ CODE GENERATION RULES:
 - Include SystemInit() for clock configuration
 - Every delay loop must use volatile counter to prevent optimization
 - Maximum stack depth: 2KB (avoid deep recursion and large local arrays)
+- STM32F0 CLOCK RULE: The GPIOA clock enable bit in RCC_AHBENR is bit 17 (IOPAEN). ALWAYS use (1U << 17). Do NOT use bit 0.
+- HARDWARE SAFETY RULE: If a schematic implies a 12V (or >3.3V) source connected to an MCU pin without a proper voltage divider, you MUST add this exact comment: "// HARDWARE FIX REQUIRED: Change the pull-up voltage source from 12V to 3.3V to protect the STM32 from overvoltage destruction."
+- ACTIVE-LOW LOGIC RULE: Assume inputs (buttons/sensors with pull-ups) are active-low. Use `if (!input_state)` to check if an input is activated.
 - VECTOR TABLE RULES (critical — wrong vector table = hardware fault on reset):
   * ALWAYS place vector table in .isr_vector section: __attribute__((section(".isr_vector")))
   * The first entry MUST be the initial stack pointer = top of RAM address, NOT a size value
